@@ -489,6 +489,32 @@ body {
     color: var(--text);
 }
 
+/* Hamburger Animation */
+.mobile-menu-btn.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+.mobile-menu-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+.mobile-menu-btn.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile Menu Backdrop */
+.mobile-menu-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.mobile-menu-backdrop.active {
+    display: block;
+    opacity: 1;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .nav-links {
@@ -500,41 +526,325 @@ body {
     }
 
     .hero {
-        padding: 100px 16px;
+        padding: 80px 16px 40px;
+        min-height: auto;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .terminal-window {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     }
 
     .terminal-body {
-        font-size: 0.8rem;
-        padding: 16px;
+        font-size: 0.75rem;
+        padding: 14px;
+        min-height: 200px;
+        max-height: 280px;
+    }
+
+    #command-input {
+        font-size: 0.75rem;
     }
 
     .dotfiles-grid {
         grid-template-columns: 1fr;
+        gap: 16px;
     }
 
     .section {
-        padding: 60px 0;
+        padding: 40px 0;
     }
 
     .section-title {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
+        margin-bottom: 24px;
     }
 
     .footer-content {
         flex-direction: column;
         text-align: center;
     }
+
+    .footer {
+        padding: 24px 0;
+    }
+
+    .footer-text {
+        font-size: 0.75rem;
+    }
+
+    .footer-links {
+        gap: 16px;
+    }
+
+    .footer-links a {
+        font-size: 0.8rem;
+    }
+
+    .container {
+        padding: 0 12px;
+    }
+
+    .navbar {
+        padding: 0 12px;
+    }
+
+    .logo {
+        font-size: 1.1rem;
+    }
+
+    .btn {
+        padding: 10px 18px;
+        font-size: 0.8rem;
+    }
+
+    .figlet {
+        font-size: 0.3rem;
+        overflow-x: auto;
+        white-space: pre;
+    }
+
+    .discord-stats {
+        gap: 1rem;
+    }
+
+    .discord-stats .stat-value {
+        font-size: 1.1rem;
+    }
+
+    .discord-stats .stat-label {
+        font-size: 0.7rem;
+    }
+
+    .discord-widget {
+        padding: 1rem;
+    }
+
+    .discord-header h3 {
+        font-size: 1.05rem;
+    }
+
+    .discord-member {
+        padding: 0.3rem 0.55rem;
+        font-size: 0.75rem;
+    }
+
+    .discord-member-avatar {
+        width: 16px;
+        height: 16px;
+    }
+
+    .discord-member-status {
+        width: 6px;
+        height: 6px;
+    }
+
+    .dotfile-card {
+        padding: 16px;
+    }
+
+    .dotfile-header h3 {
+        font-size: 0.95rem;
+    }
+
+    .dotfile-card > p {
+        font-size: 0.8rem;
+    }
+
+    .code-preview {
+        padding: 10px;
+    }
+
+    .code-preview pre {
+        font-size: 0.65rem;
+        line-height: 1.5;
+    }
+
+    .terminal-input-line {
+        margin-top: 4px;
+    }
+
+    .mobile-menu {
+        padding: 8px 16px;
+        gap: 0;
+        animation: slideDown 0.2s ease;
+    }
+
+    .mobile-menu a {
+        padding: 10px 0;
+        font-size: 0.9rem;
+    }
+
+    .lang-switch {
+        padding: 5px 10px;
+        font-size: 0.7rem;
+    }
 }
 
 @media (max-width: 480px) {
+    .hero {
+        padding: 70px 12px 30px;
+    }
+
+    .terminal-body {
+        font-size: 0.65rem;
+        padding: 12px;
+        min-height: 180px;
+        max-height: 240px;
+    }
+
+    #command-input {
+        font-size: 0.65rem;
+    }
+
+    .terminal-header {
+        padding: 8px 12px;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+
     .hero-links {
         flex-direction: column;
+        gap: 8px;
+        margin-top: 20px;
     }
 
     .btn {
         width: 100%;
         justify-content: center;
+        padding: 10px 16px;
+        font-size: 0.75rem;
     }
+
+    .figlet {
+        font-size: 0.22rem;
+    }
+
+    .section {
+        padding: 30px 0;
+    }
+
+    .section-title {
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+    }
+
+    .dotfile-card {
+        padding: 12px;
+    }
+
+    .dotfile-header {
+        gap: 8px;
+        margin-bottom: 8px;
+    }
+
+    .dotfile-header svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .dotfile-header h3 {
+        font-size: 0.9rem;
+    }
+
+    .dotfile-card > p {
+        font-size: 0.75rem;
+        margin-bottom: 10px;
+    }
+
+    .code-preview {
+        padding: 8px;
+    }
+
+    .code-preview pre {
+        font-size: 0.6rem;
+    }
+
+    .discord-stats {
+        gap: 0.75rem;
+    }
+
+    .discord-stats .stat-value {
+        font-size: 1rem;
+    }
+
+    .discord-widget {
+        padding: 0.85rem;
+    }
+
+    .discord-header {
+        gap: 0.6rem;
+        margin-bottom: 1rem;
+    }
+
+    .discord-header svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .discord-header h3 {
+        font-size: 0.95rem;
+    }
+
+    .discord-member {
+        padding: 0.25rem 0.45rem;
+        font-size: 0.7rem;
+    }
+
+    .discord-member-avatar {
+        width: 14px;
+        height: 14px;
+    }
+
+    .dotfiles-cta {
+        margin-top: 32px;
+        padding-top: 32px;
+    }
+
+    .dotfiles-cta p {
+        font-size: 0.8rem;
+    }
+
+    .footer {
+        padding: 20px 0;
+    }
+
+    .footer-text {
+        font-size: 0.7rem;
+    }
+
+    .footer-links {
+        gap: 12px;
+    }
+
+    .footer-links a {
+        font-size: 0.75rem;
+    }
+
+    .logo {
+        font-size: 1rem;
+    }
+
+    .lang-switch {
+        padding: 4px 8px;
+        font-size: 0.65rem;
+    }
+
+    .mobile-menu a {
+        padding: 8px 0;
+        font-size: 0.85rem;
+    }
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Animations */

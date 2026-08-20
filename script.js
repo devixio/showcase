@@ -3,17 +3,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuBtn = document.querySelector('.mobile-menu-btn');
     const mobileMenu = document.querySelector('.mobile-menu');
 
+    let backdrop = document.querySelector('.mobile-menu-backdrop');
+    if (!backdrop) {
+        backdrop = document.createElement('div');
+        backdrop.className = 'mobile-menu-backdrop';
+        document.body.appendChild(backdrop);
+    }
+
+    function closeMobileMenu() {
+        mobileMenu.classList.remove('active');
+        menuBtn.classList.remove('active');
+        backdrop.classList.remove('active');
+    }
+
     if (menuBtn && mobileMenu) {
         menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
+            const isOpen = mobileMenu.classList.toggle('active');
             menuBtn.classList.toggle('active');
+            backdrop.classList.toggle('active', isOpen);
         });
 
+        backdrop.addEventListener('click', closeMobileMenu);
+
         mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-                mobileMenu.classList.remove('active');
-            });
+            link.addEventListener('click', closeMobileMenu);
         });
     }
 
