@@ -44,6 +44,7 @@
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
+    overflow-x: hidden;
 }
 
 body {
@@ -600,8 +601,21 @@ body {
 
     .figlet {
         font-size: 0.28rem;
-        overflow-x: auto;
+        overflow-x: hidden;
         white-space: pre;
+    }
+
+    .terminal-body {
+        overflow-x: hidden;
+    }
+
+    .code-preview {
+        overflow-x: hidden;
+    }
+
+    .terminal-output {
+        overflow-wrap: break-word;
+        word-break: break-word;
     }
 
     .discord-stats {
@@ -776,50 +790,54 @@ body {
 
     .figlet {
         font-size: 0.2rem;
+        overflow-x: hidden;
     }
 
     .section {
-        padding: 32px 0;
+        padding: 28px 0;
     }
 
     .section-title {
-        font-size: 1.05rem;
-        margin-bottom: 18px;
+        font-size: 1rem;
+        margin-bottom: 14px;
     }
 
     .dotfiles-grid {
-        gap: 12px;
+        gap: 10px;
     }
 
     .dotfile-card {
-        padding: 14px;
+        padding: 12px;
     }
 
     .dotfile-header {
-        gap: 8px;
-        margin-bottom: 8px;
+        gap: 6px;
+        margin-bottom: 6px;
     }
 
     .dotfile-header svg {
-        width: 20px;
-        height: 20px;
+        width: 18px;
+        height: 18px;
     }
 
     .dotfile-header h3 {
-        font-size: 0.88rem;
+        font-size: 0.82rem;
     }
 
     .dotfile-card > p {
-        font-size: 0.72rem;
-        margin-bottom: 10px;
+        font-size: 0.68rem;
+        margin-bottom: 8px;
+        line-height: 1.4;
     }
 
     .code-preview {
-        padding: 8px;
+        padding: 6px;
+        margin-bottom: 10px;
     }
 
     .code-preview pre {
-        font-size: 0.56rem;
+        font-size: 0.5rem;
+        line-height: 1.4;
     }
 
     .discord-stats {
@@ -868,12 +886,12 @@ body {
     }
 
     .dotfiles-cta {
-        margin-top: 24px;
-        padding-top: 24px;
+        margin-top: 18px;
+        padding-top: 18px;
     }
 
     .dotfiles-cta p {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
     }
 
     .footer {
